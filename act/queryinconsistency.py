@@ -43,12 +43,14 @@ class QueryInconsistency(Act):
                     self.arguments.inconsistency_type = 'all'
                     results = self.get_results_ids(collection=collection)
                     self.process_results(results)
-                    self.ssh_client.close()
                 else:
                     print 'Inconsistency Type:', self.arguments.inconsistency_type
                     results = self.get_results(collection=collection)
                     self.process_results(results)
+
+                if self.arguments.ssh:
                     self.ssh_client.close()
+
         except Exception, e:
             print e.message
             if self.arguments.ssh:
