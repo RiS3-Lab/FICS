@@ -6,9 +6,9 @@
 1. Clone the repository
   - For example: mkdir /home/mansour/code
   - cd /home/mansour/code
-  - git clone --recurse-submodules repo-url
+  - ```git clone --recurse-submodules https://github.com/RiS3-Lab/FICS-.git```
   - cd FICS
-2. sh install.sh
+2. ```sh install.sh```
 3. create a directory as the root of your data (e.g., source code, bitcodes, graphs, etc.)
   - For example: mkdir /home/mansour/data
   - cd /home/mansour/data
@@ -30,7 +30,7 @@
 # Discover inconsistencies
 
 7. Run FICS on the target codebase:
-  - For example: sh scripts/get_inconsistencies_real_programs_NN_G2v.sh libtiff-19f6b70 p ns
+  - For example: ```sh scripts/get_inconsistencies_real_programs_NN_G2v.sh libtiff-19f6b70 p ns```
   - If you need to run FICS on larger projects like QEMU, change 'ns' to 's'. FICS splits the codebase to submodules
   - *The inconsistencies are saved in mongodb*
 
@@ -66,4 +66,20 @@
 | Null dereference  | [Report](https://github.com/LibreDWG/libredwg/issues/172)/[Patch](https://github.com/LibreDWG/libredwg/commit/373c8e4849f2013d7123913bca8edb35ff6bc3d6) | 
 | Null dereference  | [Report](https://github.com/LibreDWG/libredwg/issues/173)/[Patch](https://github.com/LibreDWG/libredwg/commit/373c8e4849f2013d7123913bca8edb35ff6bc3d6) | 
 
+# Citation
 
+If your found FICS useful for your research, please cite the following paper:
+
+```Latex
+@inproceedings{fics,
+ abstract = {
+Probabilistic classification has shown success in detecting known types of software bugs. However, the works following this approach tend to require a large amount of specimens to train their models. We present a new machine learning-based bug detection technique that does not require any external code or samples for training. Instead, our technique learns from the very codebase on which the bug detection is performed, and therefore, obviates the need for the cumbersome task of gathering and cleansing training samples (e.g., buggy code of certain kinds). The key idea behind our technique is a novel two-step clustering process applied on a given codebase. This clustering process identifies code snippets in a project that are functionally-similar yet appear in inconsistent forms. Such inconsistencies are found to cause a wide range of bugs, anything from missing checks to unsafe type conversions. Unlike previous works, our technique is generic and not specific to one type of inconsistency or bug. We prototyped our technique and evaluated it using 5 popular open source software, including QEMU and OpenSSL. With a minimal amount of manual analysis on the inconsistencies detected by our tool, we discovered 22 new unique bugs, despite the fact that many of these programs are constantly undergoing bug scans and new bugs in them are believed to be rare.
+},
+ author = {Ahmadi, Mansour and Mirzazade farkhani, Reza and  Williams, Ryan and Lu, Long},
+ booktitle = {Proceedings of the 30th USENIX Security Symposium},
+ month = {August},
+ series = {USENIX Security'21},
+ title = {Finding Bugs Using Your Own Code: Detecting Functionally-similar yet Inconsistent Code},
+ year = {2021}
+ ```
+}
