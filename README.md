@@ -6,7 +6,7 @@
 1. Clone the repository
   - For example: mkdir /home/mansour/code
   - cd /home/mansour/code
-  - git clone repo-url
+  - git clone --recurse-submodules repo-url
   - cd FICS
 2. sh install.sh
 3. create a directory as the root of your data (e.g., source code, bitcodes, graphs, etc.)
