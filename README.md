@@ -36,9 +36,9 @@
 
 # See Inconsistencies!
 8. To query the saved inconsistencies, you need to run the following command:
-  - python __init__.py -a=QI -p=libtiff-19f6b70 -it=check -f
-  - `it can be: check | call | type | store | order | all`
-  - `if you need to disable filtering, just remove -f`
+  - ```python __init__.py -a=QI -p=libtiff-19f6b70 -it=check -f```
+  - -it can be: check | call | type | store | order | all
+  - if you need to disable filtering, just remove -f
 
 # Here is the list of bugs found by FICS
 
@@ -57,6 +57,10 @@
 | 2 Missing checks | [Report/Patch](https://patchew.org/QEMU/20200414133052.13712-1-philmd@redhat.com/20200414133052.13712-11-philmd@redhat.com/) |
 | Undefined Behaviour  | [Report](https://lists.gnu.org/archive/html/qemu-devel/2020-03/msg05749.html)/[Patch](https://patchwork.kernel.org/patch/11446203/) |
 | Uninitialized variable | [Report/Patch](https://lists.gnu.org/archive/html/qemu-trivial/2020-03/msg00239.html) |
+|  Codebase | LibTIFF  |
+| Missing checks | [Patch](https://gitlab.com/libtiff/libtiff/-/merge_requests/96)
+| Mislocated check - Bad casting | [Report/Patch](https://gitlab.com/libtiff/libtiff/-/issues/162)|
+| Missing TIFFClose | [Report/Patch](https://gitlab.com/libtiff/libtiff/-/issues/171)
 |  Codebase | libredwg  |
 | Bad casting (Overflow)  | [Report](https://github.com/LibreDWG/libredwg/issues/174)/[Patch](https://github.com/LibreDWG/libredwg/commit/631bbacb3e18403db1015ef4063c3d19e9c8e11a) | 
 | Null dereference  | [Report](https://github.com/LibreDWG/libredwg/issues/172)/[Patch](https://github.com/LibreDWG/libredwg/commit/373c8e4849f2013d7123913bca8edb35ff6bc3d6) | 
