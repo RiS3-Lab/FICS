@@ -51,7 +51,8 @@ class QueryInconsistency(Act):
                     self.ssh_client.close()
         except Exception, e:
             print e.message
-            self.server.stop()
+            if self.arguments.ssh:
+                self.server.stop()
             # client.close()
             # self.ssh_client.close()
 
