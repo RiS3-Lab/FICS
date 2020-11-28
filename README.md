@@ -27,17 +27,17 @@
   - For example: cmake -D CMAKE_C_COMPILER="/usr/bin/clang-3.8" -D CMAKE_CXX_COMPILER="/usr/bin/clang++-3.8" .
   - get compilation database: bear make
 
-# Discover inconsistencies
+# Discover the inconsistencies
 
 7. Run FICS on the target codebase:
   - For example: ```sh scripts/get_inconsistencies_real_programs_NN_G2v.sh libtiff-19f6b70 p ns```
   - If you need to run FICS on larger projects like QEMU, change 'ns' to 's'. FICS splits the codebase to submodules
   - *The inconsistencies are saved in mongodb*
 
-# See Inconsistencies!
+# Query the found inconsistencies!!!
 8. To query the saved inconsistencies, you need to run the following command:
   - ```python __init__.py -a=QI -p=libtiff-19f6b70 -it=check -f```
-  - -it can be: check | call | type | store | order | all
+  - "-it" argument is inconsistency type and can be: check | call | type | store | order | all
   - if you need to disable filtering, just remove -f
 
 # Here is the list of bugs found by FICS
@@ -61,6 +61,12 @@
 | Missing checks | [Patch](https://gitlab.com/libtiff/libtiff/-/merge_requests/96)
 | Mislocated check - Bad casting | [Report/Patch](https://gitlab.com/libtiff/libtiff/-/issues/162)|
 | Missing TIFFClose | [Report/Patch](https://gitlab.com/libtiff/libtiff/-/issues/171)
+|  Codebase | wolfSSL  |
+| Missing check | [Report/Patch](https://github.com/wolfSSL/wolfssl/issues/2038) |
+| Missing check | [Report/Patch](https://github.com/wolfSSL/wolfssl/issues/2037)|
+| Memory exhaustion | [Report/Patch](https://github.com/wolfSSL/wolfssl/issues/2527)|
+|  Codebase | OpenSSH  |
+| Missing bzero | [Patch](https://github.com/openssh/openssh-portable/commit/2d1428b11c8b6f616f070f2ecedce12328526944)|
 |  Codebase | libredwg  |
 | Bad casting (Overflow)  | [Report](https://github.com/LibreDWG/libredwg/issues/174)/[Patch](https://github.com/LibreDWG/libredwg/commit/631bbacb3e18403db1015ef4063c3d19e9c8e11a) | 
 | Null dereference  | [Report](https://github.com/LibreDWG/libredwg/issues/172)/[Patch](https://github.com/LibreDWG/libredwg/commit/373c8e4849f2013d7123913bca8edb35ff6bc3d6) | 
