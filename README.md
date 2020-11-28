@@ -27,12 +27,18 @@
   - For example: cmake -D CMAKE_C_COMPILER="/usr/bin/clang-3.8" -D CMAKE_CXX_COMPILER="/usr/bin/clang++-3.8" .
   - get compilation database: bear make
 
-# Run FICS!
+# Discover inconsistencies
 
 7. Run FICS on the target codebase:
   - For example: sh scripts/get_inconsistencies_real_programs_NN_G2v.sh libtiff-19f6b70 p ns
   - If you need to run FICS on larger projects like QEMU, change 'ns' to 's'. FICS splits the codebase to submodules
+  - *The inconsistencies are saved in mongodb*
 
+# See Inconsistencies!
+8. To query the saved inconsistencies, you need to run the following command:
+  - python __init__.py -a=QI -p=libtiff-19f6b70 -it=check -f
+  - `it can be: check | call | type | store | order | all`
+  - `if you need to disable filtering, just remove -f`
 
 # Here is the list of bugs found by FICS
 
