@@ -205,12 +205,13 @@ class QueryInconsistency(Act):
         print 'Total Number of {} inconsistencies (No filtering): {}'.format(self.arguments.inconsistency_type,
                                                                              results.count())
         local_results = self.filter_results(results)
-
-        self.server.stop()
+        if self.arguments.ssh:
+            self.server.stop()
+            self.establish_ssh_client()
         self.mongodb_client.close()
         raw_input("Press Enter to show the inconsistencies...")
         os.system('clear')
-        self.establish_ssh_client()
+
         count = 1
         for result in local_results:
             if count < self.arguments.starting_report_item:
@@ -427,7 +428,17 @@ class QueryInconsistency(Act):
                     finally:
                         remote_file.close()
                 else:
-                    pass
+                    local_file = open(source_file_path)
+                    try:
+                        line_numbers = construct['lines']
+                        line_number = 1
+                        for line in local_file:
+                            if line_number in line_numbers:
+                                source_code_string += line.strip()
+                            line_number += 1
+                    except:
+                        pass
+
                 source_code_hash = hashlib.sha1(source_code_string).hexdigest()
                 source_code_hashes.add(source_code_hash)
 
@@ -468,7 +479,25 @@ class QueryInconsistency(Act):
             finally:
                 remote_file.close()
         else:
-            pass
+            local_file = open(construct['source_file_path'])
+            try:
+                line_numbers = construct['lines']
+                margin_line_numbers = set()
+                for line in line_numbers:
+                    line_before = line - 1
+                    line_after = line + 1
+                    margin_line_numbers.add(line_after)
+                    margin_line_numbers.add(line_before)
+                margin_line_numbers = list(margin_line_numbers - set(line_numbers))
+                line_number = 1
+                for line in local_file:
+                    if line_number in line_numbers:
+                        self.print_line(line, line_number, construct)
+                    if line_number in margin_line_numbers:
+                        self.print_line(line, line_number, construct, margin=True)
+                    line_number += 1
+            except:
+                pass
 
     def print_line(self, line, line_number, construct, margin=False):
         line = line.strip()
