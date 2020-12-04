@@ -6,7 +6,7 @@
 1. Clone the repository
   - For example: mkdir /home/mansour/code
   - cd /home/mansour/code
-  - ```git clone --recurse-submodules https://github.com/RiS3-Lab/FICS-.git```
+  - ```git clone --recurse-submodules https://github.com/RiS3-Lab/FICS.git```
   - cd FICS
 2. ```sh install.sh```
 3. create a directory as the root of your data (e.g., source code, bitcodes, graphs, etc.)
