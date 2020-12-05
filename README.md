@@ -19,7 +19,7 @@
   
 # Prepare target codebase
 
-5. clone the source code a codebase you target:
+5. In the "projects" directory, clone the source code a codebase you target:
   - For example: git clone https://gitlab.com/libtiff/libtiff.git libtiff-19f6b70
   - cd libtiff-19f6b70
   - git checkout 19f6b70 .
