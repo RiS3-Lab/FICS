@@ -71,6 +71,8 @@
 | Bad casting (Overflow)  | [Report](https://github.com/LibreDWG/libredwg/issues/174)/[Patch](https://github.com/LibreDWG/libredwg/commit/631bbacb3e18403db1015ef4063c3d19e9c8e11a) | 
 | Null dereference  | [Report](https://github.com/LibreDWG/libredwg/issues/172)/[Patch](https://github.com/LibreDWG/libredwg/commit/373c8e4849f2013d7123913bca8edb35ff6bc3d6) | 
 | Null dereference  | [Report](https://github.com/LibreDWG/libredwg/issues/173)/[Patch](https://github.com/LibreDWG/libredwg/commit/373c8e4849f2013d7123913bca8edb35ff6bc3d6) | 
+|  Codebase | TCPdump |
+| Missing initialization | [Report](https://github.com/the-tcpdump-group/tcpdump/issues/801) |
 
 # Citation
 
